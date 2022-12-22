@@ -91,3 +91,10 @@ func (e *Err) Error() string {
 
 	return s.String()
 }
+
+func (e *Err) GetErrorLocations() []ErrorLocation {
+	if e == nil || e.cause == nil {
+		return []ErrorLocation{}
+	}
+	return e.trace
+}
